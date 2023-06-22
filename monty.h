@@ -86,7 +86,7 @@ void command_handler(char *argv);
 void push_err(FILE *file_d, char *get_line, stack_t *stack, int cnt);
 void no_cmd(FILE *file_d, char *get_line, stack_t *stack, char *cnt, int item);
 void close_and_free(glo_t *global, stack_t *stack);
-void res_chck(char *itm, int cnt, glo_t *gb, char *ars, stack_t **stk, int );
+void res_chck(char *itm, int cnt, glo_t *gb, char *ars, stack_t **stk, int);
 void file_err(char *argv);
 
 #endif /* Monty_h */
