@@ -38,7 +38,7 @@ void mont_add(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	node_iterator = *stack;
 	iTotal = node_iterator->n + node_iterator->next->n;
 	node_iterator->next->n = iTotal;
