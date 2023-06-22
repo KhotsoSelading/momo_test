@@ -32,12 +32,13 @@ void mont_push(stack_t **stack, unsigned int line_number)
  */
 void mont_pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node_iterator = (stack_t *)malloc(sizeof(stack_t));
+	/*stack_t *node_iterator = (stack_t *)malloc(sizeof(stack_t));*/
+	stack_t *node_iterator = *stack;
 
 	(void)line_number;
 	if (!node_iterator)
 	{
-		fprintf(stderr, "Error: malloc operation failed :(.\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
