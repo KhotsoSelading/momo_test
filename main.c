@@ -20,6 +20,12 @@ int main(int argc, char *argv[])
 	return (0);
 }
 
+/**
+ * close_and_free - Closes file and frees resources
+ * @global: Pointer to glo_t structure
+ * @stack: Pointer to stack_t structure
+ * Return: Nothing
+ */
 void close_and_free(glo_t *global, stack_t *stack)
 {
 	free(global->get_line);
@@ -27,12 +33,27 @@ void close_and_free(glo_t *global, stack_t *stack)
 	fclose(global->file_d);
 }
 
+/**
+ * file_err - Handles file-related errors
+ * @argv: Pointer to file name or path
+ * Return: Nothing
+ */
 void file_err(char *argv)
 {
 	fprintf(stderr, "Error: Can't open file %s\n", argv);
 	exit(EXIT_FAILURE);
 }
 
+/**
+ * res_chck - Performs result check
+ * @itm: Character pointer
+ * @cnt: Integer value
+ * @gb: Pointer to glo_t structure
+ * @ars: Character pointer
+ * @stk: Pointer to pointer to stack_t structure
+ * @res: Integer value
+ * Return: Nothing
+ */
 void res_chck(char *itm, int cnt, glo_t *gb, char *ars, stack_t **stk, int res)
 {
 	res = opc_fun(stk, ars, itm, cnt);
