@@ -44,20 +44,20 @@ void res_chck(char *itm, int cnt, glo_t *gb, char *ars, stack_t **stk, int res)
 
 /**
  * command_handler - Read file
- * @argv: Arguments
+ * @filename: Arguments
  * Return: Nothing
  */
-void command_handler(char *argv)
+void command_handler(char *filename)
 {
 	int count = 0, result = 0;
-	size_t bufsize = 0;
-	char *args = NULL, *item = NULL;
 	stack_t *stack = NULL;
+	char *args = NULL, *token = NULL;
+	size_t buffer = 0;
 
-	global.file_d = fopen(argv, "r");
+	global.file_d = fopen(filename, "r");
 	if (global.file_d)
 	{
-		for (; getline(&global.get_line, &bufsize, global.file_d) != -1;)
+		for (; getline(&global.get_line, &buffer, global.file_d) != -1;)
 		{
 			count++;
 			args = strtok(global.get_line, " \n\t\r");
@@ -68,11 +68,11 @@ void command_handler(char *argv)
 			}
 			else if (*args == '#' || *args == '-')
 				continue;
-			item = strtok(NULL, " \n\t\r");
-			res_chck(item, count, &global, args, &stack, result);
+			token = strtok(NULL, " \n\t\r");
+			res_chck(token, count, &global, args, &stack, result);
 		}
 		close_and_free(&global, stack);
 	}
 	else
-		file_err(argv);
+		file_err(filename);
 }
