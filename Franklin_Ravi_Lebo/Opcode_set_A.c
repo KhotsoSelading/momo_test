@@ -85,7 +85,7 @@ void mont_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top_item;
 
-	if (!(*stack))
+	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
@@ -94,8 +94,6 @@ void mont_pop(stack_t **stack, unsigned int line_number)
 	top_item = *stack;
 	*stack = top_item->next;
 	if (top_item->next != NULL)
-	{
-		top_item->next->prev = top_item->prev;
-	}
+		top_item->prev = NULL;
 	free(top_item);
 }

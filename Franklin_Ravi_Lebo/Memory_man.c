@@ -9,13 +9,12 @@
  */
 void empty_stack(stack_t *stack)
 {
-	stack_t *itr_pointer = NULL;
+	stack_t *temp = NULL, *ptr = stack;
 
-	itr_pointer = stack;
-
-	if (!itr_pointer)
+	while (ptr != NULL)
 	{
-		empty_stack(itr_pointer->next);
-		free(itr_pointer);
+		temp = ptr;
+		ptr = ptr->next;
+		free(temp);
 	}
 }
