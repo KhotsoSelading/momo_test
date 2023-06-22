@@ -76,6 +76,12 @@ void mont_swap(stack_t **stack, unsigned int line_number);
 void mont_add(stack_t **stack, unsigned int line_number);
 void mont_nop(stack_t **stack, unsigned int line_number);
 
+/* operations- SET C */
+void mont_sub(stack_t **stack, unsigned int line_number);
+void mont_div(stack_t **stack, unsigned int line_number);
+void mont_mul(stack_t **stack, unsigned int line_number);
+void mont_mod(stack_t **stack, unsigned int line_number);
+
 /* cleaup functions */
 void empty_stack(stack_t *stack);
 

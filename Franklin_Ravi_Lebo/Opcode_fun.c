@@ -21,6 +21,10 @@ int opc_fun(stack_t **stack, char *arg, char *item, int cnt)
 		{"swap", mont_swap},
 		{"add", mont_add},
 		{"nop", mont_nop},
+		{"sub", mont_sub},
+		{"div", mont_div},
+		{"mul", mont_mul},
+		{"mod", mont_mod},
 		{NULL, NULL}
 	};
 
